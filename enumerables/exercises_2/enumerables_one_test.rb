@@ -11,52 +11,65 @@ class EnumerablesOneTest < Minitest::Test
   end
 
   def test_find_waldo
-    skip
+    # skip
     words = ["noise", "dog", "fair", "house", "waldo", "bucket", "fish"]
     actual = words.find do |word|
-      # Your Code Here
+      word == "waldo"
     end
     assert_equal "waldo", actual
   end
 
   def test_pick_words_with_three_letters
-    skip
+    # skip
     words = ["pill", "bad", "finger", "cat", "blue", "dog", "table", "red"]
-    actual = # Your Code Here
+    actual = words.select do |word|
+      word.length == 3
+    end
     assert_equal ["bad", "cat", "dog", "red"], actual
   end
 
   def test_normalize_zip_codes
-    skip
+    # skip
     numbers = [234, 10, 9119, 38881]
-    # Your Code Here
+    actual = numbers.map do |num|
+      num.to_s.rjust(5, "0")
+    end
     assert_equal ["00234", "00010", "09119", "38881"], actual
   end
 
   def test_no_waldo
-    skip
+    # skip
     words = ["scarf", "sandcastle", "flag", "pretzel", "crow", "key"]
-    # Your Code Here
+    found = words.find do |word|
+      word == "waldo"
+    end
     assert_nil found
   end
 
   def test_pick_floats
-    skip
+    # skip
     numbers = [3, 1.4, 3.5, 2, 4.9, 9.1, 8.0]
-    # Your Code Here
+    actual = numbers.select do |num|
+      num.class == Float
+    end
     assert_equal [1.4, 3.5, 4.9, 9.1, 8.0], actual
   end
 
   def test_pick_dinosaurs
-    skip
+    # skip
     animals = ["tyrannosaurus", "narwhal", "eel", "achillesaurus", "qingxiusaurus"]
-    actual = # Your code goes here
+    actual = animals.select do |animal|
+      animal.end_with?("saurus")
+    end
     assert_equal ["tyrannosaurus", "achillesaurus", "qingxiusaurus"], actual
   end
 
   def test_words_with_no_vowels
-    skip
+    # skip
     words = ["green", "sheep", "travel", "least", "boat"]
-    # Your Code Here
+    actual = words.map do |word|
+      word.delete("aeiou")
+    end
     assert_equal ["grn", "shp", "trvl", "lst", "bt"], actual
   end
+end
